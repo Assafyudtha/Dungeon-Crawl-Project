@@ -11,6 +11,10 @@ public class HealthBarEnemy : MonoBehaviour
     [SerializeField]private Transform target;
     [SerializeField]private Vector3 offset;
     // Start is called before the first frame update
+    void Start(){
+        healthBar=GetComponent<Slider>();
+        camera = FindObjectOfType<Camera>();
+    }
     public void updateHealth(float currentHealth, float maxHealth){
         healthBar.value= currentHealth/maxHealth;
     }

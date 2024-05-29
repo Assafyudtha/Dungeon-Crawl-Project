@@ -10,7 +10,7 @@ public class EnemyScriptMerge : LivingEntity
 {
     public enum State {Idle ,Chasing,Attaacking};
     State currentState;
-    [SerializeField]LivingEntity targetEntity;
+    [SerializeField]Player targetEntity;
     [SerializeField]int attackDamage=20;
     [SerializeField]GameObject hpbox;
     float damage = 1;
@@ -44,13 +44,16 @@ public class EnemyScriptMerge : LivingEntity
     HealthBarEnemy healthBar;
     [SerializeField]float currentHealth;
 
+    [Header("Respawn Point")]
+    [SerializeField]Spawner spawns;
+
     void Awake(){
         pathfinder =GetComponent<NavMeshAgent>();
         healthBar = GetComponentInChildren<HealthBarEnemy>();
         if(GameObject.FindWithTag("Player")!=null){
             playerOnRange=false;
             target=GameObject.FindWithTag("Player").transform;
-            targetEntity=target.GetComponent<LivingEntity>();
+            targetEntity=target.GetComponent<Player>();
             myCollisionRadius=GetComponent<CapsuleCollider>().radius;
             targetCollisionRadius=target.GetComponent<CapsuleCollider>().radius;
             sightRange = GetComponent<SphereCollider>().radius;
@@ -66,7 +69,7 @@ public class EnemyScriptMerge : LivingEntity
         base.Start();
         targetEntity.OnDeath += OnTargetDeath;
         healthBar.updateHealth(health,startingHealth);
-    
+        StartCoroutine(detectPlayer());
         //Gak jalan karna pas pertamakali jalan playeronrange nya sudha false jadi skip coroutine
 
     }
@@ -82,13 +85,32 @@ public class EnemyScriptMerge : LivingEntity
     {
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatisPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatisPlayer);
+    }
 
-        if(!playerInSightRange&& !playerInAttackRange){}
-        if(playerInSightRange&& !playerInAttackRange){ChasePlayer();}
-        if(playerInSightRange&& playerInAttackRange){
-            AttackPlayer();
-        }
+    IEnumerator detectPlayer(){
+       if(nonSpawnEnemy){
+            if(!playerInSightRange&& !playerInAttackRange){}
+            else if(playerInSightRange&& !playerInAttackRange){    //Kalo Player Terdeteksi
+                
+                if(spawns.enabled==false){
+                    spawns.enabled=true;
+                }
+                            
+                ChasePlayer();
+            }//Musuh gak mau nyerang karna pake coroutine
+            else if(playerInSightRange&& playerInAttackRange){
+                AttackPlayer();
+            }else{
 
+            }
+       }else{
+            if(playerInAttackRange){
+                AttackPlayer();
+            }else{
+                ChasePlayer();
+            }
+       }
+       yield return new WaitForSeconds(3f); 
     }
 
 void Patrolling(){
