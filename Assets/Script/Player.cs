@@ -28,6 +28,7 @@ public class Player : LivingEntity
     public enum State {attack, idle};
     State currentState;
     [SerializeField]Transform Cam;
+    HealingScript heals;
     Vector3 camForward;
     Vector3 move;
     Vector3 moveInput;
@@ -135,7 +136,12 @@ public class Player : LivingEntity
             dialogueController.StartDialogue();
             this.enabled=false;
        }
-
+       if(Input.GetKeyDown(KeyCode.Alpha4)){
+            heals.UseHpPotion();
+       }
+        if(Input.GetKeyDown(KeyCode.Alpha5)){
+            heals.UseStaminaPotion();
+       }
        //----------------Bagian Ekor Input-------------//
     }
     void Awake(){
@@ -157,6 +163,13 @@ public class Player : LivingEntity
             interactNotif.SetActive(true);
             dialogueController.npcDialogue = coll.GetComponent<NPC>();
         }
+        if(coll.tag == "Heal"){
+            heals.increaseHealPotionAmount();
+            GameObject.Destroy(coll.gameObject);
+        }else if(coll.tag=="Stamina"){
+            heals.increaseStaminaPotionAmount();
+            GameObject.Destroy(coll.gameObject);
+        }
     }
 
     void OnTriggerExit(Collider coll){
@@ -165,10 +178,6 @@ public class Player : LivingEntity
         }
     }
 
-    void AssignInputs(){
-      //  input.Main.Move.performed += ctx => ClickToMove();
-
-    }
     void GatherInput(){
         
         _input = new Vector3(Input.GetAxisRaw("Horizontal"),0,Input.GetAxisRaw("Vertical"));
@@ -225,6 +234,7 @@ public class Player : LivingEntity
         combatControll = GetComponent<PlayerCombat>();
         weaponController = GetComponent<WeaponContoller>();
         dialogueController = GetComponent<DialogueController>();
+        heals = GetComponent<HealingScript>();
         weaponController.EquipWeapon(0);
         currentState = State.idle;
         

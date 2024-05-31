@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 587004826256111559}
   - component: {fileID: 4955146362407412696}
   - component: {fileID: 6229670128067850175}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -603,7 +603,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -694,11 +694,11 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
@@ -736,3 +736,4 @@ MonoBehaviour:
   playerInAttackRange: 0
   nonSpawnEnemy: 1
   currentHealth: 0
+  spawns: {fileID: 0}

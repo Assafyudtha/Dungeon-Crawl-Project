@@ -69,7 +69,9 @@ public class EnemyScriptMerge : LivingEntity
         base.Start();
         targetEntity.OnDeath += OnTargetDeath;
         healthBar.updateHealth(health,startingHealth);
-        StartCoroutine(detectPlayer());
+        //if(!nonSpawnEnemy){
+            StartCoroutine(detectPlayer());
+        //}
         //Gak jalan karna pas pertamakali jalan playeronrange nya sudha false jadi skip coroutine
 
     }
@@ -88,29 +90,37 @@ public class EnemyScriptMerge : LivingEntity
     }
 
     IEnumerator detectPlayer(){
-       if(nonSpawnEnemy){
-            if(!playerInSightRange&& !playerInAttackRange){}
-            else if(playerInSightRange&& !playerInAttackRange){    //Kalo Player Terdeteksi
-                
-                if(spawns.enabled==false){
-                    spawns.enabled=true;
-                }
-                            
-                ChasePlayer();
-            }//Musuh gak mau nyerang karna pake coroutine
-            else if(playerInSightRange&& playerInAttackRange){
-                AttackPlayer();
-            }else{
+        while(true)
+        {
+            if(nonSpawnEnemy){
+                    if(!playerInSightRange&& !playerInAttackRange){
+                        while(!playerInSightRange){
+                            print(playerInSightRange);
+                            yield return new WaitUntil(()=>playerInSightRange);
+                        }
+                    }
+                    else if(playerInSightRange&& !playerInAttackRange){    //Kalo Player Terdeteksi
+                        
+                        if(spawns.enabled==false){
+                            spawns.enabled=true;
+                        }
+                                    
+                        ChasePlayer();
+                        yield return new WaitForSeconds(0.1f);
+                    }//Musuh gak mau nyerang karna pake coroutine
+                    else if(playerInSightRange&& playerInAttackRange){
+                        AttackPlayer();
+                    }
 
-            }
-       }else{
-            if(playerInAttackRange){
-                AttackPlayer();
             }else{
-                ChasePlayer();
+                    if(playerInAttackRange){
+                        AttackPlayer();
+                    }else{
+                        ChasePlayer();
+                    }
             }
-       }
-       yield return new WaitForSeconds(3f); 
+            yield return new WaitForSeconds(1f); 
+        }
     }
 
 void Patrolling(){
@@ -150,10 +160,10 @@ void Patrolling(){
     void ChasePlayer(){
         hpbox.SetActive(true);
         Vector3 dirToTarget = (target.position - transform.position).normalized;
-        Vector3 targetPosition = target.position-dirToTarget* targetCollisionRadius ;
+        Vector3 targetPosition = target.position-dirToTarget* (targetCollisionRadius-attackRange) ;
         if(!dead&&pathfinder.enabled)
         {
-            pathfinder.SetDestination(target.position);
+            pathfinder.SetDestination(targetPosition);
         }
     }
 

@@ -6,12 +6,15 @@ public class LivingEntity : MonoBehaviour, IDamageable
 {
     public float startingHealth;
     public float health{get; protected set;}
+    public float startingStamina;
+    public float stamina{get; protected set;}
     protected bool dead;
     public event System.Action OnDeath;
     // Start is called before the first frame update
     protected virtual void Start()
     {
         health = startingHealth;
+        stamina = startingStamina;
     }
 
     public virtual void TakeHit(float damage,Vector3 hitpPoint,Vector3 hitDirection){
@@ -27,6 +30,10 @@ public class LivingEntity : MonoBehaviour, IDamageable
 
     public virtual void Heal(float hp){
         health += hp;
+    }
+
+    public virtual void replenishStamina(float staminaReplenish){
+        stamina+=staminaReplenish;
     }
 
     public virtual void Die(){

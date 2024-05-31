@@ -9,4 +9,6 @@ public interface IDamageable
     void TakeDamage(float damage);
 
     void Heal(float hp);
+
+    void replenishStamina(float stamina);
 }
