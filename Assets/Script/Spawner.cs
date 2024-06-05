@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -9,13 +10,19 @@ public class Spawner : MonoBehaviour
     Player player;
     [SerializeField]int enemiesRemainingToSpawn;
     int enemiesRemainingAlive;
+    [SerializeField]NextLevel nextStageObj;
 
     // Start is called before the first frame update
+    void Awake(){
+        nextStageObj = FindObjectOfType<NextLevel>();
+        nextStageObj.gameObject.SetActive(false);
+    }
     void Start()
     {
         player=FindObjectOfType<Player>();
         player.OnDeath += OnPlayerDeath;
         enemiesRemainingAlive=0;
+
     }
 
     void OnEnable(){
@@ -46,8 +53,12 @@ public class Spawner : MonoBehaviour
 
     void OnEnemyDeath(){
         enemiesRemainingAlive --;
-        if(enemiesRemainingAlive==0){
-
+        if(enemiesRemainingAlive<=0){
+            levelFinish();
         }
+    }
+
+    void levelFinish(){
+        nextStageObj.gameObject.SetActive(true);
     }
 }

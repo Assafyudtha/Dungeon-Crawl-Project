@@ -72,9 +72,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2e1f7fb2c0300ee4da0114f54b347535, type: 2}
   - {fileID: 11400000, guid: 116a3fbb2ed672147ada00b959743f1b, type: 2}
   - {fileID: 11400000, guid: d8b4815715039854fa509ecddd532eec, type: 2}
-  weaponSkill1Animation: {fileID: 0}
-  weaponSkill2Animation: {fileID: 0}
-  weaponSkill3Animation: {fileID: 0}
+  weaponSkill1: {fileID: 3694992479118540732, guid: 0c557d69266213c43a5303e2b275e05b, type: 3}
+  weaponSkill2: {fileID: 0}
+  weaponSkill3: {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!1001 &5096897379052976871
 PrefabInstance:
   m_ObjectHideFlags: 0

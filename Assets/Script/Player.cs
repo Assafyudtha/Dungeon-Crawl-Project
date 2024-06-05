@@ -142,6 +142,9 @@ public class Player : LivingEntity
         if(Input.GetKeyDown(KeyCode.Alpha5)){
             heals.UseStaminaPotion();
        }
+       if(Input.GetKeyDown(KeyCode.Q)){
+        weaponController.Skill1();
+       }
        //----------------Bagian Ekor Input-------------//
     }
     void Awake(){

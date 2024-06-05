@@ -7,9 +7,9 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] PlayerCombat combat;
     public List<AttackAnimation> weaponAttackAnimation;
-    public AttackAnimation weaponSkill1Animation;
-    public AttackAnimation weaponSkill2Animation;
-    public AttackAnimation weaponSkill3Animation;
+    public Skills weaponSkill1;
+    public Skills weaponSkill2;
+    public Skills weaponSkill3;
     public LivingEntity enemy;
 
     float damage;
@@ -45,7 +45,7 @@ public class Weapon : MonoBehaviour
     }
 
     public void Skill1(){
-
+        weaponSkill1.Cast();
     }
     public void Skill2(){
 
