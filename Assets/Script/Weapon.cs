@@ -44,8 +44,8 @@ public class Weapon : MonoBehaviour
         collision.enabled=false;
     }
 
-    public void Skill1(){
-        weaponSkill1.Cast();
+    public void Skill1(Vector3 position, Quaternion rot){
+        weaponSkill1.Cast(position,rot);
     }
     public void Skill2(){
 

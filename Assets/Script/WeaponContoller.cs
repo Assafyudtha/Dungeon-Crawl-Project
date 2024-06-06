@@ -9,6 +9,7 @@ public class WeaponContoller : MonoBehaviour
     public Weapon[] acquiredWeapons;
     public Weapon equippedWeapon;
     public List<AttackAnimation> equippedWeaponAttackAnimation;
+    public GameObject castPoint;
     
     public void EquipWeapon(Weapon weaponToEquip){
         if(equippedWeapon !=null){
@@ -26,7 +27,7 @@ public class WeaponContoller : MonoBehaviour
     }
 
     public void Skill1(){
-        equippedWeapon.Skill1();
+        equippedWeapon.Skill1(castPoint.transform.position, castPoint.transform.rotation);
     }
 
     public void Skill2(){

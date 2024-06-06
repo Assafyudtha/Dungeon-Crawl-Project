@@ -24,24 +24,25 @@ public class ProjectileMagic : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision coll){
-        if(coll.collider.tag=="Enemy"&&coll.collider.GetType() == typeof(CapsuleCollider)){
-            if(coll.relativeVelocity.magnitude>2){
-                var surroundings = Physics.OverlapSphere(transform.position,_explosionRadius);
-                foreach(var obj in surroundings){
-                    var rb = obj.GetComponent<Rigidbody>();
-                    enemies = obj.GetComponent<EnemyScriptMerge>();
-                    enemies.TakeDamage(explosionDamage);    
-                    if(rb == null)continue;
+        if(coll.collider.tag=="Enemy"){
+            
+            var surroundings = Physics.OverlapSphere(transform.position,_explosionRadius);
+            foreach(var obj in surroundings){
+                var rb = obj.GetComponent<Rigidbody>();
+                enemies = obj.GetComponent<EnemyScriptMerge>();
+                enemies.TakeDamage(explosionDamage);    
+                if(rb == null)continue;
 
-                    rb.AddExplosionForce(_explosionForce,transform.position,_explosionRadius);
-                }
-                Explode();
-            }        
+                rb.AddExplosionForce(_explosionForce,transform.position,_explosionRadius);
+            }
+            Explode();
+                  
         }
     }
 
     void Explode(){
-        Instantiate (_particles,transform.position,Quaternion.identity);
+        GameObject effect = Instantiate (_particles,transform.position,Quaternion.LookRotation(Vector3.up)); //gak hilang di scene
+        Destroy(effect, 1f);
         Destroy(gameObject);
     }
 }
