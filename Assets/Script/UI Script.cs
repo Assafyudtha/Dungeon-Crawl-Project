@@ -14,6 +14,10 @@ public class UIScript : MonoBehaviour
         playerInput.enabled=false;
         pause.SetActive(true);
     }
+    public void PauseWin(){
+        Time.timeScale = 0f;
+        playerInput.enabled=false;
+    }
 
     public void Resume(){
         Time.timeScale=1f;

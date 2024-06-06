@@ -53,7 +53,7 @@ public class Spawner : MonoBehaviour
 
     void OnEnemyDeath(){
         enemiesRemainingAlive --;
-        if(enemiesRemainingAlive<=0){
+        if(enemiesRemainingAlive<0){
             levelFinish();
         }
     }

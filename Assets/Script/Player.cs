@@ -114,7 +114,6 @@ public class Player : LivingEntity
         if(attack)
         {
         combatControll.Attack();
-        combatControll.ExitAttack();
         StartCoroutine(ResetCooldown());
         }
        }
@@ -138,6 +137,7 @@ public class Player : LivingEntity
        }
        if(Input.GetKeyDown(KeyCode.Alpha4)){
             heals.UseHpPotion();
+            healthBar.fillAmount = health/100f;
        }
         if(Input.GetKeyDown(KeyCode.Alpha5)){
             heals.UseStaminaPotion();

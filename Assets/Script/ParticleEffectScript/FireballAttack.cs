@@ -19,13 +19,7 @@ public class Skills : MonoBehaviour
     }
 
     public void Cast(){
-        if(particle == null){
-        particle = GetComponentInChildren<ParticleSystem>();
-        particle.Play();
-        }else {
-            particle.Play();
-        }
-
+        Instantiate()
     }
 
 }
