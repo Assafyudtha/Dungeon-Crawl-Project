@@ -72,7 +72,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2e1f7fb2c0300ee4da0114f54b347535, type: 2}
   - {fileID: 11400000, guid: 116a3fbb2ed672147ada00b959743f1b, type: 2}
   - {fileID: 11400000, guid: d8b4815715039854fa509ecddd532eec, type: 2}
-  weaponSkill1: {fileID: 2933983119667180621, guid: 11b0cbc30f6c5aa448e523e590abb626, type: 3}
+  weaponSkill1: {fileID: 3221600810107065232, guid: 11b0cbc30f6c5aa448e523e590abb626, type: 3}
   weaponSkill2: {fileID: 0}
   weaponSkill3: {fileID: 0}
   enemy: {fileID: 0}

@@ -147,6 +147,7 @@ public class Player : LivingEntity
        }
        //----------------Bagian Ekor Input-------------//
     }
+
     void Awake(){
         input = new CustomActions();
 
@@ -211,6 +212,8 @@ public class Player : LivingEntity
     private(bool success, Vector3 position)GetMousePosition(){
         var ray=mainCamera.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out var hitInfo,Mathf.Infinity,groundMask)){
+            Debug.DrawRay(mainCamera.transform.position, hitInfo.point, Color.blue);
+            
             //raycast hit something, will return with the position of it
             return(success:true,position:hitInfo.point);
         }else{
@@ -240,7 +243,6 @@ public class Player : LivingEntity
         heals = GetComponent<HealingScript>();
         weaponController.EquipWeapon(0);
         currentState = State.idle;
-        
     }
 
     /*void Animation(){

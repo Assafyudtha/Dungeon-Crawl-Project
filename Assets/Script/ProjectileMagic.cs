@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
@@ -26,9 +27,10 @@ public class ProjectileMagic : MonoBehaviour
     void OnCollisionEnter(Collision coll){
         if(coll.collider.tag=="Enemy"){
             
-            var surroundings = Physics.OverlapSphere(transform.position,_explosionRadius);
-            foreach(var obj in surroundings){
-                var rb = obj.GetComponent<Rigidbody>();
+            Collider[] surroundings = Physics.OverlapSphere(transform.position,_explosionRadius);
+            Collider[] enemyColliders = Array.FindAll(surroundings, collider => collider.tag == "Enemy");
+            foreach(Collider obj in enemyColliders){
+                Rigidbody rb = obj.GetComponent<Rigidbody>();
                 enemies = obj.GetComponent<EnemyScriptMerge>();
                 enemies.TakeDamage(explosionDamage);    
                 if(rb == null)continue;
@@ -37,6 +39,8 @@ public class ProjectileMagic : MonoBehaviour
             }
             Explode();
                   
+        }else{
+            Explode();
         }
     }
 

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Net;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponContoller : MonoBehaviour
 {
@@ -10,6 +10,11 @@ public class WeaponContoller : MonoBehaviour
     public Weapon equippedWeapon;
     public List<AttackAnimation> equippedWeaponAttackAnimation;
     public GameObject castPoint;
+
+    [SerializeField]Image imageWeaponSkill_Slot1;
+    [SerializeField]Image imageWeaponSkill_Slot2;
+    [SerializeField]Image imageWeaponSkill_Slot3;
+
     
     public void EquipWeapon(Weapon weaponToEquip){
         if(equippedWeapon !=null){
@@ -26,17 +31,18 @@ public class WeaponContoller : MonoBehaviour
         EquipWeapon(acquiredWeapons[weaponSlot]);
     }
 
-    public void Skill1(){
-        equippedWeapon.Skill1(castPoint.transform.position, castPoint.transform.rotation);
+    public void Skill1()
+    {
+        equippedWeapon.Skill1(castPoint.transform.position, castPoint.transform.rotation) ;
     }
 
-    public void Skill2(){
-        equippedWeapon.Skill2();
+    public void Skill2( ){
+        
 
     }
 
-    public void Skill3(){
-        equippedWeapon.Skill3();
+    public void Skill3( ){
+        
 
     }
 }
