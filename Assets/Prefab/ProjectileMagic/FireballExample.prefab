@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fire: {fileID: 0}
   SkillIcon: {fileID: 0}
-  staminaCost: 0
+  staminaCost: 20
 --- !u!1 &5266662958527372311
 GameObject:
   m_ObjectHideFlags: 0

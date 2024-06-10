@@ -12,22 +12,20 @@ using System.Linq;
 using Unity.VisualScripting;
 public class Player : LivingEntity
 {
-
-
     //---------Batalkan ClickToMove, Ubah Ke Movement WASD Karna Kombat Kurang Intense nanti----------//
 
     CustomActions input;
     private Vector3 _input;
     Rigidbody rb;
     [Header("Movement")]
-    [SerializeField]private float _speed =5;
-    [SerializeField]private LayerMask groundMask;
-    [SerializeField]private Camera mainCamera;
-    [SerializeField]UIScript ui;
-    public Animator anims;
+    [SerializeField] float _speed =5;
+    [SerializeField] LayerMask groundMask;
+    [SerializeField] Camera mainCamera;
+    [SerializeField] UIScript ui;
+    [SerializeField] Animator anims;
     public enum State {attack, idle};
     State currentState;
-    [SerializeField]Transform Cam;
+    Transform Cam;
     HealingScript heals;
     Vector3 camForward;
     Vector3 move;
@@ -41,11 +39,8 @@ public class Player : LivingEntity
     bool attack=true;
     [Header("UI Settings")]
     public Image healthBar;
-    public Image staminaBar;
-    float stamina;
-    [SerializeField]GameObject interactNotif;
-    
-    
+    [SerializeField] Image staminaBar;
+    [SerializeField] GameObject interactNotif;    
 
     void FixedUpdate()
     {
@@ -141,11 +136,14 @@ public class Player : LivingEntity
        }
         if(Input.GetKeyDown(KeyCode.Alpha5)){
             heals.UseStaminaPotion();
+            updateStaminaBar();
        }
        if(Input.GetKeyDown(KeyCode.Q)){
-        weaponController.Skill1();
+        weaponController.Skill1(this);
        }
        //----------------Bagian Ekor Input-------------//
+
+       print(stamina);
     }
 
     void Awake(){
@@ -229,8 +227,6 @@ public class Player : LivingEntity
         healthBar.fillAmount = health/100f;
     }
 
-
-
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -243,13 +239,26 @@ public class Player : LivingEntity
         heals = GetComponent<HealingScript>();
         weaponController.EquipWeapon(0);
         currentState = State.idle;
+        StartCoroutine(StaminaRegen());
     }
-
     /*void Animation(){
         anims.SetFloat("MoveSpeed",Mathf.Abs(_input.ToIso().z));
         anims.SetFloat("MoveStrafe",Mathf.Abs(_input.ToIso().x));
     }*/
- 
-    
 
+    public override void costOfStamina(float staminaCost)
+    {
+        base.costOfStamina(staminaCost);
+        updateStaminaBar();
+    }
+
+    void updateStaminaBar(){
+        staminaBar.fillAmount=stamina/100f;
+    }
+
+    public override IEnumerator StaminaRegen()
+    {
+        updateStaminaBar();
+        return base.StaminaRegen();
+    }
 }

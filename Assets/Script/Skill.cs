@@ -6,12 +6,25 @@ using UnityEngine.Assertions.Comparers;
 public class Skills : MonoBehaviour
 {
     public ProjectileMagic fire;
-    [SerializeField]Sprite SkillIcon;
+    public Sprite SkillIcon;
     [SerializeField] float staminaCost;
-    public void Cast(Vector3 castPos, Quaternion rotation){
-       
-        fire = GetComponent<ProjectileMagic>();
-        ProjectileMagic fireball = Instantiate(fire, castPos, rotation);
+    Player playerBase;
+
+    public void Cast(Vector3 castPos, Quaternion rotation,Player playerStamina){
+        if(playerStamina!=null){
+            if(playerStamina.stamina>=staminaCost){
+                if(fire==null){    
+                    fire = GetComponent<ProjectileMagic>();
+                }else{
+                    _ = Instantiate(fire, castPos, rotation);
+                    playerStamina.costOfStamina(staminaCost);
+                }
+            }else{
+                print("no stamina");
+            }
+        }else{
+            print("No Player");
+        }
     }
 
 }

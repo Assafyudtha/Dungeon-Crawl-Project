@@ -24,10 +24,6 @@ public class Weapon : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        damage=combat.activeDamage;
-    }
 
     private void OnTriggerEnter(Collider coll){
         if(coll.tag == "Enemy"&&coll.GetType()==typeof(CapsuleCollider)){
@@ -44,8 +40,8 @@ public class Weapon : MonoBehaviour
         collision.enabled=false;
     }
 
-    public void Skill1(Vector3 position, Quaternion rot){
-        weaponSkill1.Cast(position,rot);
+    public void Skill1(Vector3 position, Quaternion rot, Player playerStamina){
+        weaponSkill1.Cast(position,rot, playerStamina);
     }
     public void Skill2(Vector3 position, Quaternion rot){
         
