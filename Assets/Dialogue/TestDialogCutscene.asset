@@ -12,16 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6d7f12f6aff2a4d88f0e6779b773a6, type: 3}
   m_Name: TestDialogCutscene
   m_EditorClassIdentifier: 
-  charName:
-  - Penduduk 1
-  - Penduduk 2
-  - Penduduk 1
-  - Penduduk 2
-  - Penduduk 1
-  Dialogue:
-  - Si Ibu kok murung
-  - "Iya Bu susah tidur mikirin masalah kampung kita\t"
-  - Kok bisa? apa korban nambah lagi?
-  - Iya nih, tetangga sebelah saya. Anaknya hilang lagi, ini jadi ke 29 orang yang
-    hilang.
-  - Waduh, polisi juga susah melacak nya gimana. Tetap gak ketemu.
+  DialogAtas:
+  - Bapak kok tiba tiba minta pulang yah?
+  - Ibu juga gak sakit perasaan.
+  - Gak mungkin juga
+  - Belum waktunya pensiun padahal
+  - Gak mungkin sih
+  DialogBawah:
+  - Padahal Bapak sehat sehat aja
+  - Apa karna warisan?
+  - Bapak masih muda juga
+  - Apa ada sengketa?
+  - Terus kenapa yah?

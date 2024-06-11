@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6d7f12f6aff2a4d88f0e6779b773a6, type: 3}
+  m_Name: Dialog 2 Penduduk
+  m_EditorClassIdentifier: 
+  DialogAtas:
+  - Penduduk 1
+  - Penduduk 2
+  - Penduduk 1
+  - Penduduk 2
+  - Penduduk 1
+  - Penduduk 2
+  DialogBawah:
+  - Haduh, makin cemas aja dikampung ini pak
+  - Ada apa emangnya?
+  - Dikampung sebelah ada korban lagi
+  - Korban lagi? waduh, sekarang udah 29 perempuan yang hilang dong
+  - Makanya, jadi cemas. Keluarganya juga bilang anak gadisnya gak ada tingkah aneh.
+    Pas paginya anaknya udah hilang dan ada tanda pintu dibuka.
+  - Kalo begitu anaknya pergi sendiri dong. Waduh semakin mengerikan aja kejadiannya.

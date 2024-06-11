@@ -12,16 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6d7f12f6aff2a4d88f0e6779b773a6, type: 3}
   m_Name: TestDialog1
   m_EditorClassIdentifier: 
-  charName:
-  - NPC
-  - NPC
-  - NPC
-  - NPC
-  - Arya
-  Dialogue:
-  - Hey Nak
-  - Aku Tahu kepulangan mu mendadak
-  - Aku sangat membutuhkanmu dalam tugas ini
-  - Kau tahu kalau Ayah memiliki pusaka yang harus ayah jaga, dan beberapa hari lalu
-    pusaka tersebut dicuri
-  - Kok bisa?
+  DialogAtas:
+  - Tes dialog ke 2
+  DialogBawah:
+  - Tes Dialog ke 2

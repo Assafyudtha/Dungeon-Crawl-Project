@@ -36,15 +36,15 @@ public class DialogueController : MonoBehaviour
     }
 
     IEnumerator TypeLine(){
-        foreach (char c in npcDialogue.dialog.Dialogue[index].ToCharArray()){
-            npcName.text= npcDialogue.dialog.charName[index];
+        foreach (char c in npcDialogue.dialog.DialogBawah[index].ToCharArray()){
+            npcName.text= npcDialogue.dialog.DialogAtas[index];
             textDialogUI.text +=c;
             yield return new WaitForSeconds(textSpeed);
         }
     }
 
     public void nextLine(){
-        if(index<npcDialogue.dialog.Dialogue.Length-1){
+        if(index<npcDialogue.dialog.DialogBawah.Length-1){
             index++;
             npcName.text = string.Empty;
             textDialogUI.text=string.Empty;

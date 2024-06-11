@@ -5,8 +5,9 @@ using UnityEngine.UI;
 [CreateAssetMenu(menuName ="Dialogue")]
 public class DialogueSO : ScriptableObject
 {
-    public string[] charName;
+    [TextArea]
+    public string[] DialogAtas;
     
     [TextArea]
-    public string[] Dialogue;
+    public string[] DialogBawah;
 }

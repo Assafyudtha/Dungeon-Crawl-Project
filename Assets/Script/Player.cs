@@ -44,6 +44,9 @@ public class Player : LivingEntity
 
     void FixedUpdate()
     {
+        if(stamina!=startingStamina||staminaBar.fillAmount!=1){
+            updateStaminaBar();
+        }
         if(currentState==State.idle)
         {
             Move();
@@ -253,12 +256,7 @@ public class Player : LivingEntity
     }
 
     void updateStaminaBar(){
-        staminaBar.fillAmount=stamina/100f;
-    }
-
-    public override IEnumerator StaminaRegen()
-    {
-        updateStaminaBar();
-        return base.StaminaRegen();
+        float latestStaminaBar = staminaBar.fillAmount;
+        staminaBar.fillAmount=Mathf.Lerp(latestStaminaBar,stamina/100f,.7f);
     }
 }

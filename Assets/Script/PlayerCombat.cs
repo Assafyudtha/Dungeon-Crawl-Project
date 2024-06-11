@@ -37,7 +37,7 @@ public class PlayerCombat : MonoBehaviour
                 weaponController.equippedWeapon.ActivateCollision();
                 anims.runtimeAnimatorController=weaponController.equippedWeaponAttackAnimation[comboCounter].animatorOV;
                 anims.Play("Attacks",0,0);
-                activeDamage = weaponController.equippedWeaponAttackAnimation[comboCounter].damage;
+                weaponController.equippedWeapon.weaponDamage = weaponController.equippedWeaponAttackAnimation[comboCounter].damage;
                 comboCounter++;
                 lastClickedTime=Time.time;
                 
@@ -52,7 +52,7 @@ public class PlayerCombat : MonoBehaviour
     }
     
     IEnumerator DisableCollision(){
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         weaponController.equippedWeapon.DisableCollision();
     }
     public void ExitAttack(){

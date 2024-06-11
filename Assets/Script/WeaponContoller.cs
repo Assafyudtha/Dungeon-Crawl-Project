@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,11 @@ public class WeaponContoller : MonoBehaviour
     public Weapon equippedWeapon;
     public List<AttackAnimation> equippedWeaponAttackAnimation;
     public GameObject castPoint;
+    bool skill1Ready=true;
+    bool skill2Ready=true;
+    bool skill3Ready=true;
+    float currentFillAmount;
+
 
     [SerializeField]Image imageWeaponSkill_Slot1;
     [SerializeField]Image imageBackgroundWeaponSkill_Slot1;
@@ -30,11 +36,11 @@ public class WeaponContoller : MonoBehaviour
         equippedWeapon.transform.localRotation=Quaternion.identity;
         equippedWeaponAttackAnimation = equippedWeapon.weaponAttackAnimation;
         imageWeaponSkill_Slot1.sprite=equippedWeapon.weaponSkill1.SkillIcon;
-        imageWeaponSkill_Slot2.sprite=equippedWeapon.weaponSkill2.SkillIcon;
-        imageWeaponSkill_Slot3.sprite=equippedWeapon.weaponSkill3.SkillIcon;
+        //imageWeaponSkill_Slot2.sprite=equippedWeapon.weaponSkill2.SkillIcon;
+        //imageWeaponSkill_Slot3.sprite=equippedWeapon.weaponSkill3.SkillIcon;
         imageBackgroundWeaponSkill_Slot1.sprite=equippedWeapon.weaponSkill1.SkillIcon;
-        imageBackgroundWeaponSkill_Slot2.sprite=equippedWeapon.weaponSkill2.SkillIcon;
-        imageBackgroundWeaponSkill_Slot3.sprite=equippedWeapon.weaponSkill3.SkillIcon;
+        //imageBackgroundWeaponSkill_Slot2.sprite=equippedWeapon.weaponSkill2.SkillIcon;
+        //imageBackgroundWeaponSkill_Slot3.sprite=equippedWeapon.weaponSkill3.SkillIcon;
 
     }
 
@@ -44,7 +50,15 @@ public class WeaponContoller : MonoBehaviour
 
     public void Skill1(Player playerStamina)
     {
-        equippedWeapon.Skill1(castPoint.transform.position, castPoint.transform.rotation, playerStamina) ;
+        if(skill1Ready){
+            currentFillAmount = 0f;
+            imageBackgroundWeaponSkill_Slot1.fillAmount=currentFillAmount;
+            equippedWeapon.Skill1(castPoint.transform.position, castPoint.transform.rotation, playerStamina) ;
+            skill1Ready=false;
+            StartCoroutine(StartCooldownSkill1());
+        }else{
+            print("On Cooldown");
+        }
     }
 
     public void Skill2( ){
@@ -55,5 +69,41 @@ public class WeaponContoller : MonoBehaviour
     public void Skill3( ){
         
 
+    }
+
+    IEnumerator StartCooldownSkill1(){
+        float timer = equippedWeapon.weaponSkill1.cooldown;
+        while(!skill1Ready){
+            timer -=Time.deltaTime;
+            imageWeaponSkill_Slot1.fillAmount = Mathf.Lerp(1,0,timer/equippedWeapon.weaponSkill1.cooldown);
+            if(timer<0){
+            skill1Ready = true;
+            }
+            yield return null;
+        }
+    }
+
+    IEnumerator StartCooldownSkill2(){
+        float timer = equippedWeapon.weaponSkill2.cooldown;
+        while(!skill1Ready){
+            timer -=Time.deltaTime;
+            imageWeaponSkill_Slot2.fillAmount = Mathf.Lerp(1,0,timer/equippedWeapon.weaponSkill2.cooldown);
+            if(timer<0){
+            skill3Ready = true;
+            }
+            yield return null;
+        }
+    }
+
+    IEnumerator StartCooldownSkill3(){
+        float timer = equippedWeapon.weaponSkill3.cooldown;
+        while(!skill1Ready){
+            timer -=Time.deltaTime;
+            imageWeaponSkill_Slot3.fillAmount = Mathf.Lerp(1,0,timer/equippedWeapon.weaponSkill3.cooldown);
+            if(timer<0){
+            skill3Ready = true;
+            }
+            yield return null;
+        }
     }
 }

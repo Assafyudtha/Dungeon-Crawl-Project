@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
     public Skills weaponSkill3;
     public LivingEntity enemy;
 
-    float damage;
+    public float weaponDamage;
     Collider collision;
     //damage seharusnya kena ke living pake idamagable
     // Start is called before the first frame update
@@ -28,8 +28,8 @@ public class Weapon : MonoBehaviour
     private void OnTriggerEnter(Collider coll){
         if(coll.tag == "Enemy"&&coll.GetType()==typeof(CapsuleCollider)){
             enemy = coll.GetComponent<EnemyScriptMerge>();
-            enemy.TakeDamage(damage);
-            print("damage: "+damage);
+            enemy.TakeDamage(weaponDamage);
+            print("damage: "+weaponDamage);
         }
     }
     public void ActivateCollision(){

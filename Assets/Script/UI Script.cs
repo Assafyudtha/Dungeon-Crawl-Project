@@ -36,4 +36,9 @@ public class UIScript : MonoBehaviour
         Time.timeScale=1f;
         SceneManager.LoadScene(nextLevel);
     }
+
+    public void NextScene(){
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex+1);
+    }
 }

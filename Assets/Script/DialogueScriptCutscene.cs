@@ -43,9 +43,9 @@ public class DialogueScriptCutscene : MonoBehaviour, IPlayableBehaviour
 
     private void DisplayDialogueLine()
     {
-        if (index < currentDialogue.Dialogue.Length)
+        if (index < currentDialogue.DialogBawah.Length)
         {
-            textDialogUI.text = currentDialogue.Dialogue[index];
+            textDialogUI.text = currentDialogue.DialogBawah[index];
             index++;
         }
         else

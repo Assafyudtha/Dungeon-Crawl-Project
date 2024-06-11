@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6d7f12f6aff2a4d88f0e6779b773a6, type: 3}
+  m_Name: Father And Son Dialogue
+  m_EditorClassIdentifier: 
+  DialogAtas:
+  - "Bapa\t"
+  - Arya
+  - Bapa
+  - Arya
+  - Bapa
+  - Arya
+  - Bapa
+  - Arya
+  - Bapa
+  - Arya
+  - Bapa
+  - Bapa
+  - Arya
+  - Bapa
+  - Arya
+  DialogBawah:
+  - Gimana Kabar kamu?
+  - Syukurlah pak, baik. Kerjaan lancar selama disana pak
+  - Baguslah, maaf meminta mu kembali secara tiba-tiba. Bapa memang ingin bertemu
+    kamu secepatnya karna rindu. Namun alasan utamanya bukan itu.
+  - Lalu alasan sebenarnya?
+  - Kamu ingat Kujang turun temurun milik keluarga kita?
+  - Iya, kalo tidak salah Kujang Rawa Rontek.
+  - Benar, dan beberapa hari lalu. Kujang tersebut dicuri oleh seseorang.
+  - Bagaimana bisa? Rumah ini kemalingan?
+  - Bapa harap begitu. Namun setelah bapa perhatikan, pencurinya tidak menyentuh
+    barang lainnya sama sekali
+  - Jadi itu!!!
+  - Benar, pencuri itu memang hanya menginginkan pusaka itu. Bisa kita ketahui bahwa
+    pencuri tersebut mengetahui rahasia pusaka itu.
+  - Bapa memanggil kamu untuk membantu Bapa untuk mencegah bencana yang akan terjadi
+    dikarenakan oleh pusaka itu.
+  - Pusaka itu bukankan hanya memiliki kemampuan untuk memberikan seseorang keabadian?
+  - Memang benar, namun jika seseorang mendapatkan keabadian tersebut. Dia akan kehilangan
+    kemanusiaannya, dan akan menjadi bencana bagi kita.
