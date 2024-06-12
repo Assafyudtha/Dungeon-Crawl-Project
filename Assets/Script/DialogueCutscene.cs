@@ -69,6 +69,10 @@ public class DialogueCutscene : MonoBehaviour
         textUI.SetActive(false);
     }
 
+    void OnDestroy(){
+        textUI.SetActive(false);
+    }
+
     /* jadi dialognya akan diambil jika menyentuh collider npc seperti take damage ke musuh
     lalu nanti show UI dialog nya dan ubah text nama dan dialognya sesuai dari isi variable di NPC */
 }
