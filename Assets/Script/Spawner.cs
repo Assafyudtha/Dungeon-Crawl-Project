@@ -11,11 +11,14 @@ public class Spawner : MonoBehaviour
     [SerializeField]int enemiesRemainingToSpawn;
     int enemiesRemainingAlive;
     [SerializeField]NextLevel nextStageObj;
+    [SerializeField]bool finalSpawner=false;
 
     // Start is called before the first frame update
     void Awake(){
+        if(finalSpawner){
         nextStageObj = FindObjectOfType<NextLevel>();
         nextStageObj.gameObject.SetActive(false);
+        }
     }
     void Start()
     {
