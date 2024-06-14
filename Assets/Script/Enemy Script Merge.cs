@@ -13,6 +13,9 @@ public class EnemyScriptMerge : LivingEntity
     [SerializeField]Player targetEntity;
     [SerializeField]int attackDamage=20;
     [SerializeField]GameObject hpbox;
+    [SerializeField]GameObject hpJamu;
+    [SerializeField]GameObject staminaJamu;
+
     float damage = 1;
     public Transform target;
     public float rotateSpeed = 0.02f;
@@ -26,6 +29,8 @@ public class EnemyScriptMerge : LivingEntity
     bool hasTarget;
     //Patrolling
     public Vector3 walkPoint;
+    Vector3 dirToTarget;
+
     bool walkPointSet;
     public float walkPointRange;
 
@@ -67,7 +72,8 @@ public class EnemyScriptMerge : LivingEntity
     protected override void Start()
     {
         base.Start();
-        targetEntity.OnDeath += OnTargetDeath;
+        if(targetEntity!=null){
+        targetEntity.OnDeath += OnTargetDeath;}
         healthBar.updateHealth(health,startingHealth);
         //if(!nonSpawnEnemy){
             StartCoroutine(detectPlayer());
@@ -79,7 +85,6 @@ public class EnemyScriptMerge : LivingEntity
     void OnTargetDeath(){
         playerOnRange = false;
         currentState=State.Idle;
-        StopAllCoroutines();
     }
 
     // Update is called once per frame
@@ -90,7 +95,7 @@ public class EnemyScriptMerge : LivingEntity
     }
 
     IEnumerator detectPlayer(){
-        while(true)
+        while(target!=null)
         {
             if(nonSpawnEnemy){
                     if(!playerInSightRange&& !playerInAttackRange){
@@ -159,7 +164,10 @@ void Patrolling(){
 
     void ChasePlayer(){
         hpbox.SetActive(true);
-        Vector3 dirToTarget = (target.position - transform.position).normalized;
+
+        if(target != null){
+            dirToTarget = (target.position - transform.position).normalized;
+        }
         Vector3 targetPosition = target.position-dirToTarget* (targetCollisionRadius-attackRange) ;
         if(!dead&&pathfinder.enabled)
         {
@@ -181,6 +189,24 @@ void Patrolling(){
     }
     private void ResetAttack(){
         alreadyAttacked = false;
+    }
+
+    public override void Die()
+    {
+        powerUp(hpJamu,staminaJamu);
+        base.Die();
+    }
+
+    public GameObject powerUp( GameObject heal,GameObject stamina){
+        float randomPowerup = Random.Range (0,1f);
+        if(randomPowerup<=0.7f){
+            return null;
+        }else if (randomPowerup>0.7f&&randomPowerup<=0.9f){
+           return Instantiate(heal, transform.position, Quaternion.identity);
+        }else{
+           return Instantiate(stamina, transform.position, Quaternion.identity);
+        }
+
     }
 
 }

@@ -6,13 +6,21 @@ using UnityEngine.UI;
 public class UIScript : MonoBehaviour
 {   
     [SerializeField]GameObject pause;
+    [SerializeField]GameObject UIGameplay;
     string nextLevel;
     [SerializeField]Player playerInput;
+    [SerializeField]GameObject gameoverUI;
+
+    void Awake(){
+        playerInput = FindObjectOfType<Player>();
+        playerInput.OnDeath += GameOver;
+    }
 
     public void Pause(){
         Time.timeScale = 0f;
         playerInput.enabled=false;
         pause.SetActive(true);
+        UIGameplay.SetActive(false);
     }
     public void PauseWin(){
         Time.timeScale = 0f;
@@ -35,6 +43,12 @@ public class UIScript : MonoBehaviour
     public void NextLevel(){
         Time.timeScale=1f;
         SceneManager.LoadScene(nextLevel);
+    }
+
+    void GameOver(){
+        Time.timeScale = 0f;
+        gameoverUI.SetActive(true);
+        UIGameplay.SetActive(false);
     }
 
     public void NextScene(){

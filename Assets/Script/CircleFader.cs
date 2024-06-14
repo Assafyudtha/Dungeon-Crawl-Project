@@ -14,7 +14,7 @@ public class CircleFader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        cameraPlayer = GetComponent<Player>().mainCamera;
     }
 
     // Update is called once per frame
@@ -24,9 +24,12 @@ public class CircleFader : MonoBehaviour
         var ray= new Ray(transform.position, dir.normalized);
 
         if(Physics.Raycast(ray, 1000, wallMask))
-        WallMaterial.SetFloat(SizeID,1);
-        else
-        WallMaterial.SetFloat(SizeID, 0);
+        {
+            Debug.DrawRay(cameraPlayer.transform.position, cameraPlayer.transform.forward*1000, Color.yellow);
+            
+            WallMaterial.SetFloat(SizeID,1);}
+        else{
+            WallMaterial.SetFloat(SizeID, 0);}
 
         var view = cameraPlayer.WorldToViewportPoint(transform.position);
         var pos2D = new Vector2(view.x, view.y);

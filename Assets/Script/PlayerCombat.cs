@@ -44,6 +44,7 @@ public class PlayerCombat : MonoBehaviour
                 if(comboCounter>weaponController.equippedWeaponAttackAnimation.Count-1){
                     comboCounter=0;
                 }
+                SoundManager.PlaySound(SoundManager.Sound.playerAttack,false);
                 StartCoroutine(DisableCollision());
                 
                 

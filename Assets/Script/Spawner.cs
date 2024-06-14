@@ -34,7 +34,7 @@ public class Spawner : MonoBehaviour
 
     IEnumerator SpawnEnemy(){
         while(enemiesRemainingToSpawn>0){
-            float spawnDelay = 5;
+            float spawnDelay = 2;
             EnemyScriptMerge spawnedEnemy = Instantiate(enemy, transform.position,Quaternion.identity)as EnemyScriptMerge;
             spawnedEnemy.nonSpawnEnemy=false;
             spawnedEnemy.OnDeath +=OnEnemyDeath;
@@ -56,7 +56,7 @@ public class Spawner : MonoBehaviour
 
     void OnEnemyDeath(){
         enemiesRemainingAlive --;
-        if(enemiesRemainingAlive<0){
+        if(enemiesRemainingAlive<0&&finalSpawner){
             levelFinish();
         }
     }

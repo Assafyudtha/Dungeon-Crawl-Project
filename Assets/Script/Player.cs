@@ -20,7 +20,7 @@ public class Player : LivingEntity
     [Header("Movement")]
     [SerializeField] float _speed =5;
     [SerializeField] LayerMask groundMask;
-    [SerializeField] Camera mainCamera;
+    public Camera mainCamera;
     [SerializeField] UIScript ui;
     [SerializeField] Animator anims;
     public enum State {attack, idle};
@@ -41,6 +41,8 @@ public class Player : LivingEntity
     public Image healthBar;
     [SerializeField] Image staminaBar;
     [SerializeField] GameObject interactNotif;    
+    [SerializeField] GameObject gameoverUI;    
+    
 
     void FixedUpdate()
     {
@@ -151,6 +153,7 @@ public class Player : LivingEntity
 
     void Awake(){
         input = new CustomActions();
+        mainCamera = FindObjectOfType<Camera>();
 
         
     }
@@ -259,4 +262,5 @@ public class Player : LivingEntity
         float latestStaminaBar = staminaBar.fillAmount;
         staminaBar.fillAmount=Mathf.Lerp(latestStaminaBar,stamina/100f,.7f);
     }
+
 }

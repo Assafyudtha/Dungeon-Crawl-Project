@@ -28,6 +28,7 @@ public class Weapon : MonoBehaviour
     private void OnTriggerEnter(Collider coll){
         if(coll.tag == "Enemy"&&coll.GetType()==typeof(CapsuleCollider)){
             enemy = coll.GetComponent<EnemyScriptMerge>();
+            SoundManager.PlaySound(SoundManager.Sound.hitEffect,true);
             enemy.TakeDamage(weaponDamage);
             print("damage: "+weaponDamage);
         }

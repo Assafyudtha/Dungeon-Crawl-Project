@@ -176,6 +176,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 01b9523c11a17eb418d47ae91a7cdbce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1046193714789268346}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 01b9523c11a17eb418d47ae91a7cdbce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5879072121209656960}
   m_SourcePrefab: {fileID: 100100000, guid: 01b9523c11a17eb418d47ae91a7cdbce, type: 3}
 --- !u!4 &1539248087703343146 stripped
 Transform:
@@ -358,6 +361,14 @@ MonoBehaviour:
   staminaPotionAmountText: {fileID: 0}
   notifUI: {fileID: 0}
   Notification: {fileID: 0}
+--- !u!81 &5879072121209656960
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3420964684458624666}
+  m_Enabled: 1
 --- !u!95 &8273755976635352666 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 01b9523c11a17eb418d47ae91a7cdbce, type: 3}

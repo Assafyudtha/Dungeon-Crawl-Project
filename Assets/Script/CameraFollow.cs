@@ -25,13 +25,14 @@ public class CameraFollow : MonoBehaviour
         Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
         Debug.DrawRay(Input.mousePosition, transform.forward, Color.green);
     }
+    //Mathf.Clamp(targetpos.x, xMin, float.MaxValue) taro di clamped poss targetpos x kalo error
 
     void CameraOnPlayers(){
         if(player!=null){
             Vector3 targetPos= player.position+cameraOffset;
             //Math clamp untuk memberitahu posisi player agar tidak melewati 
             //batas axis x pada kamera agar tetap dalam sorotan kamera
-            Vector3 clampedPos = new Vector3(Mathf.Clamp(targetPos.x, xMin, float.MaxValue), targetPos.y, targetPos.z);
+            Vector3 clampedPos = new Vector3(targetPos.x, targetPos.y, targetPos.z);
             Vector3 smoothPos = Vector3.SmoothDamp(transform.position, clampedPos,ref velocity, followSpeed * Time.fixedDeltaTime);
 
             transform.position= smoothPos;

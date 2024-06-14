@@ -51,6 +51,7 @@ public class WeaponContoller : MonoBehaviour
     public void Skill1(Player playerStamina)
     {
         if(skill1Ready){
+            //SoundManager.PlaySound(SoundManager.Sound.playerSpellCast,false);
             currentFillAmount = 0f;
             imageBackgroundWeaponSkill_Slot1.fillAmount=currentFillAmount;
             equippedWeapon.Skill1(castPoint.transform.position, castPoint.transform.rotation, playerStamina) ;
