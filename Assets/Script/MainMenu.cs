@@ -10,7 +10,8 @@ public class MainMenu : MonoBehaviour
 {
     public Slider volume;
     public void NewGame(){
-        SceneManager.LoadScene("Stage 1");
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex+1);
     }
 
     public void Option(){

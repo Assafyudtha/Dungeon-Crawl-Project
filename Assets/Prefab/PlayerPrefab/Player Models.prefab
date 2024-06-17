@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 4826894338904354587}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10.81, z: 6.05}
+  m_LocalPosition: {x: 0, y: 10.809999, z: 2.3847725}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -84,15 +84,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 01b9523c11a17eb418d47ae91a7cdbce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -59.39
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 01b9523c11a17eb418d47ae91a7cdbce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.759
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 01b9523c11a17eb418d47ae91a7cdbce, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -93.41002
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 01b9523c11a17eb418d47ae91a7cdbce, type: 3}
       propertyPath: m_LocalRotation.w
@@ -204,7 +204,7 @@ Rigidbody:
   m_GameObject: {fileID: 3420964684458624666}
   serializedVersion: 4
   m_Mass: 2
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -242,9 +242,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 2.8361876
-  m_Height: 15.208551
+  m_Height: 12.334112
   m_Direction: 1
-  m_Center: {x: 0, y: 7.104277, z: 0}
+  m_Center: {x: 0, y: 8.541496, z: 0}
 --- !u!114 &8816015195544681519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +270,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   staminaBar: {fileID: 0}
   interactNotif: {fileID: 0}
+  gameoverUI: {fileID: 0}
 --- !u!114 &1362792792364198210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,7 +335,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3420964684458624666}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1682e4e4ccb7bc34e95f06073d63b864, type: 3}
   m_Name: 

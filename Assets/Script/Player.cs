@@ -88,8 +88,6 @@ public class Player : LivingEntity
         //pake toiso atau gak nanti mengikuti world axis
         turnAmount=localMove.x;
         forwardAmount=localMove.z;
-        
-
     }
 
     void UpdateAnimator(){
@@ -154,7 +152,7 @@ public class Player : LivingEntity
     void Awake(){
         input = new CustomActions();
         mainCamera = FindObjectOfType<Camera>();
-
+        SoundManager.initialize();
         
     }
 
@@ -189,7 +187,9 @@ public class Player : LivingEntity
     void GatherInput(){
         
         _input = new Vector3(Input.GetAxisRaw("Horizontal"),0,Input.GetAxisRaw("Vertical"));
-        
+        if(_input!=Vector3.zero){
+            SoundManager.PlaySound(SoundManager.Sound.playerMovement,false);
+        }
     }
 
     void Look(){
@@ -208,7 +208,6 @@ public class Player : LivingEntity
     void Move(){
         //rb.MovePosition(transform.position+(transform.forward*_input.magnitude)*_speed*Time.deltaTime);
         //_input.ToIso() untuk mengubah matriks 45 derajat sehingga pergerakan sesuai kamera isometrik
-        
         rb.MovePosition(transform.position+_input.ToIso()*_speed*Time.deltaTime);
         
     }

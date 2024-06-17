@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class UIScript : MonoBehaviour
 {   
-    [SerializeField]GameObject pause;
-    [SerializeField]GameObject UIGameplay;
+    public GameObject pause;
+    public GameObject UIGameplay;
+    public GameObject winCondition;
     string nextLevel;
     [SerializeField]Player playerInput;
     [SerializeField]GameObject gameoverUI;
@@ -38,11 +39,12 @@ public class UIScript : MonoBehaviour
     }
     public void BackToMenu(){
         Time.timeScale=1f;
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("MainMenu");
     }
     public void NextLevel(){
         Time.timeScale=1f;
-        SceneManager.LoadScene(nextLevel);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex+1);
     }
 
     void GameOver(){

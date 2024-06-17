@@ -10,14 +10,16 @@ public class Spawner : MonoBehaviour
     Player player;
     [SerializeField]int enemiesRemainingToSpawn;
     int enemiesRemainingAlive;
+    [Tooltip("Cantumkan penghalang atau Portal level selanjutnya kalau ini spawner terakhir")]
     [SerializeField]NextLevel nextStageObj;
+
+    [Tooltip("Aktifkan ini jike Spawner Bagian akhir, jika final set true lalu disable scriptnya juga gameobject nya")]
     [SerializeField]bool finalSpawner=false;
 
     // Start is called before the first frame update
     void Awake(){
         if(finalSpawner){
-        nextStageObj = FindObjectOfType<NextLevel>();
-        nextStageObj.gameObject.SetActive(false);
+            nextStageObj.gameObject.SetActive(false);
         }
     }
     void Start()
@@ -56,12 +58,18 @@ public class Spawner : MonoBehaviour
 
     void OnEnemyDeath(){
         enemiesRemainingAlive --;
-        if(enemiesRemainingAlive<0&&finalSpawner){
-            levelFinish();
+        if(nextStageObj!=null){
+            if(enemiesRemainingAlive<0&&finalSpawner){
+                levelFinish();
+            }else if(enemiesRemainingAlive<0&&nextStageObj.gateNextPassage){
+                levelFinish();
+            }
         }
     }
 
     void levelFinish(){
-        nextStageObj.gameObject.SetActive(true);
+        if(!nextStageObj.gateNextPassage){
+        nextStageObj.gameObject.SetActive(true);}
+        nextStageObj.enabled=true;
     }
 }
