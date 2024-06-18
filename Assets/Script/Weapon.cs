@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        collision = GetComponent<SphereCollider>();
+        collision = GetComponent<Collider>();
         collision.enabled=false;
         combat=GetComponentInParent<PlayerCombat>();
     }

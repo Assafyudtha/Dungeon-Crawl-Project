@@ -100,6 +100,11 @@ public class Player : LivingEntity
         }
     }
 
+    void OnDisable(){
+        anims.SetFloat("MoveSpeed",0);
+        anims.SetFloat("MoveStrafe",0);
+    }
+
     void Update(){
        
         GatherInput();

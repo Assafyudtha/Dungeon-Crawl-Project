@@ -40,12 +40,14 @@ public class PlayerCombat : MonoBehaviour
                 weaponController.equippedWeapon.weaponDamage = weaponController.equippedWeaponAttackAnimation[comboCounter].damage;
                 comboCounter++;
                 lastClickedTime=Time.time;
-                
+                //AnimatorClipInfo animatorStateinfo = anims.GetCurrentAnimatorClipInfo[];
+                //string nameAnims = animatorStateinfo[0].clip.name;
+                float duration= anims.GetCurrentAnimatorStateInfo(0).length;
                 if(comboCounter>weaponController.equippedWeaponAttackAnimation.Count-1){
                     comboCounter=0;
                 }
                 SoundManager.PlaySound(SoundManager.Sound.playerAttack,false);
-                StartCoroutine(DisableCollision());
+                Invoke("DisableCollision1",duration);
                 
                 
             }
@@ -53,7 +55,11 @@ public class PlayerCombat : MonoBehaviour
     }
     
     IEnumerator DisableCollision(){
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
+        weaponController.equippedWeapon.DisableCollision();
+    }
+
+    void DisableCollision1(){
         weaponController.equippedWeapon.DisableCollision();
     }
     public void ExitAttack(){

@@ -53,11 +53,9 @@ public class LivingEntity : MonoBehaviour, IDamageable
         while(true){
             if (stamina < startingStamina){
                     stamina = Mathf.Clamp(stamina+staminaRegenRate,0,startingStamina);
-                    print("regen");
                     yield return new WaitForSeconds(1f);
                     
             }else{
-                    print("waiting");
                     yield return null;
             }
         }

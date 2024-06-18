@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5945581270105789931}
-  - component: {fileID: 4833458155620808333}
   - component: {fileID: 3975708473217758857}
+  - component: {fileID: 7243083289506892548}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -34,27 +34,6 @@ Transform:
   - {fileID: 4697650596741586188}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &4833458155620808333
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6477088827846391404}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.48797435
-  m_Center: {x: 0.36478037, y: 0.83112496, z: -0.011637747}
 --- !u!114 &3975708473217758857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,6 +55,28 @@ MonoBehaviour:
   weaponSkill2: {fileID: 0}
   weaponSkill3: {fileID: 0}
   enemy: {fileID: 0}
+  weaponDamage: 0
+--- !u!65 &7243083289506892548
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6477088827846391404}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8600841, y: 1.3193731, z: 0.11143592}
+  m_Center: {x: 0.3132898, y: 0.58855903, z: 0.000000014901161}
 --- !u!1001 &5096897379052976871
 PrefabInstance:
   m_ObjectHideFlags: 0
