@@ -133,10 +133,6 @@ public class Player : LivingEntity
        if(Input.GetButtonDown("Pause")){
         ui.Pause();
        }
-       if(Input.GetKeyDown(KeyCode.F)&&dialogueController.npcDialogue!=null){
-            dialogueController.StartDialogue();
-            this.enabled=false;
-       }
        if(Input.GetKeyDown(KeyCode.Alpha4)){
             heals.UseHpPotion();
             healthBar.fillAmount = health/100f;
@@ -175,10 +171,6 @@ public class Player : LivingEntity
     }
 
     void OnTriggerEnter(Collider coll){
-        if(coll.tag == "NPC"){
-            interactNotif.SetActive(true);
-            dialogueController.npcDialogue = coll.GetComponent<NPC>();
-        }
         if(coll.tag == "Heal"){
             heals.increaseHealPotionAmount();
             GameObject.Destroy(coll.gameObject);

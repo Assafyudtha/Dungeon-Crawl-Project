@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,6 +9,10 @@ public class UIScript : MonoBehaviour
     public GameObject pause;
     public GameObject UIGameplay;
     public GameObject winCondition;
+    public GameObject Dialogue;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI dialogueText;
+
     string nextLevel;
     [SerializeField]Player playerInput;
     [SerializeField]GameObject gameoverUI;

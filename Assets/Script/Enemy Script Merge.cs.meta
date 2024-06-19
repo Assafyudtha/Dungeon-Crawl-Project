@@ -3,7 +3,13 @@ guid: 8cf601138cc0937499389dde52ea8dc6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - targetEntity: {instanceID: 0}
+  - hpbox: {instanceID: 0}
+  - hpJamu: {instanceID: 0}
+  - staminaJamu: {instanceID: 0}
+  - target: {instanceID: 0}
+  - spawns: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
