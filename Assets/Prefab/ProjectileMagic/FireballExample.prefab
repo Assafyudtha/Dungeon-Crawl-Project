@@ -101,7 +101,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   _explosionRadius: 5
   _explosionForce: 500
   explosionDamage: 20
-  speed: 10
+  speed: 0.5
   _particles: {fileID: 3218325269141214404, guid: ec34794a78a77c74daffc287efe3d084, type: 3}
 --- !u!54 &-4213157429019437037
 Rigidbody:
@@ -212,7 +212,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5266662958527372311}
   serializedVersion: 8
-  lengthInSec: 1
+  lengthInSec: 3
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -277,7 +277,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0

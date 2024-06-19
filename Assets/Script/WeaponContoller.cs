@@ -36,11 +36,11 @@ public class WeaponContoller : MonoBehaviour
         equippedWeapon.transform.localRotation=Quaternion.identity;
         equippedWeaponAttackAnimation = equippedWeapon.weaponAttackAnimation;
         imageWeaponSkill_Slot1.sprite=equippedWeapon.weaponSkill1.SkillIcon;
-        //imageWeaponSkill_Slot2.sprite=equippedWeapon.weaponSkill2.SkillIcon;
-        //imageWeaponSkill_Slot3.sprite=equippedWeapon.weaponSkill3.SkillIcon;
+        imageWeaponSkill_Slot2.sprite=equippedWeapon.weaponSkill2.SkillIcon;
+        imageWeaponSkill_Slot3.sprite=equippedWeapon.weaponSkill3.SkillIcon;
         imageBackgroundWeaponSkill_Slot1.sprite=equippedWeapon.weaponSkill1.SkillIcon;
-        //imageBackgroundWeaponSkill_Slot2.sprite=equippedWeapon.weaponSkill2.SkillIcon;
-        //imageBackgroundWeaponSkill_Slot3.sprite=equippedWeapon.weaponSkill3.SkillIcon;
+        imageBackgroundWeaponSkill_Slot2.sprite=equippedWeapon.weaponSkill2.SkillIcon;
+        imageBackgroundWeaponSkill_Slot3.sprite=equippedWeapon.weaponSkill3.SkillIcon;
 
     }
 
@@ -62,13 +62,31 @@ public class WeaponContoller : MonoBehaviour
         }
     }
 
-    public void Skill2( ){
-        
+    public void Skill2(Player playerStamina){
+        if(skill2Ready){
+            SoundManager.PlaySound(SoundManager.Sound.playerSpellCast,false);
+            currentFillAmount = 0f;
+            imageBackgroundWeaponSkill_Slot2.fillAmount=currentFillAmount;
+            equippedWeapon.Skill2(castPoint.transform.position, castPoint.transform.rotation, playerStamina) ;
+            skill2Ready=false;
+            StartCoroutine(StartCooldownSkill2());
+        }else{
+            print("On Cooldown");
+        }
 
     }
 
-    public void Skill3( ){
-        
+    public void Skill3(Player playerStamina){
+        if(skill3Ready){
+            SoundManager.PlaySound(SoundManager.Sound.playerSpellCast,false);
+            currentFillAmount = 0f;
+            imageBackgroundWeaponSkill_Slot3.fillAmount=currentFillAmount;
+            equippedWeapon.Skill3(castPoint.transform.position, castPoint.transform.rotation, playerStamina) ;
+            skill3Ready=false;
+            StartCoroutine(StartCooldownSkill3());
+        }else{
+            print("On Cooldown");
+        }
 
     }
 
@@ -86,11 +104,11 @@ public class WeaponContoller : MonoBehaviour
 
     IEnumerator StartCooldownSkill2(){
         float timer = equippedWeapon.weaponSkill2.cooldown;
-        while(!skill1Ready){
+        while(!skill2Ready){
             timer -=Time.deltaTime;
             imageWeaponSkill_Slot2.fillAmount = Mathf.Lerp(1,0,timer/equippedWeapon.weaponSkill2.cooldown);
             if(timer<0){
-            skill3Ready = true;
+            skill2Ready = true;
             }
             yield return null;
         }
@@ -98,7 +116,7 @@ public class WeaponContoller : MonoBehaviour
 
     IEnumerator StartCooldownSkill3(){
         float timer = equippedWeapon.weaponSkill3.cooldown;
-        while(!skill1Ready){
+        while(!skill3Ready){
             timer -=Time.deltaTime;
             imageWeaponSkill_Slot3.fillAmount = Mathf.Lerp(1,0,timer/equippedWeapon.weaponSkill3.cooldown);
             if(timer<0){

@@ -44,11 +44,12 @@ public class Weapon : MonoBehaviour
     public void Skill1(Vector3 position, Quaternion rot, Player playerStamina){
         weaponSkill1.Cast(position,rot, playerStamina);
     }
-    public void Skill2(Vector3 position, Quaternion rot){
+    public void Skill2(Vector3 position, Quaternion rot, Player playerStamina){
+        weaponSkill2.Cast(position,rot, playerStamina);
         
     }
 
-    public void Skill3(Vector3 position, Quaternion rot){
-        
+    public void Skill3(Vector3 position, Quaternion rot, Player playerStamina){
+        weaponSkill3.Cast(position,rot, playerStamina);
     }
 }

@@ -16,7 +16,7 @@ public class Player : LivingEntity
 
     CustomActions input;
     private Vector3 _input;
-    Rigidbody rb;
+    public Rigidbody rb;
     [Header("Movement")]
     [SerializeField] float _speed =5;
     [SerializeField] LayerMask groundMask;
@@ -52,7 +52,7 @@ public class Player : LivingEntity
         if(currentState==State.idle)
         {
             Move();
-        
+            Look();
         if (Cam !=null){
             camForward = Vector3.Scale(Cam.up,new Vector3(1,0,1)).normalized;
             //mungkin salah yang dibawah ini karena divideo memakai 2 variabel float
@@ -110,13 +110,12 @@ public class Player : LivingEntity
         GatherInput();
         
         
-        Look();
        // Animation();
        //-----------------Bagian Input----------------//
        if(Input.GetButtonDown("Fire1")){
         if(attack)
         {
-        combatControll.Attack();
+        combatControll.Attack(this);
         StartCoroutine(ResetCooldown());
         }
        }
@@ -149,6 +148,12 @@ public class Player : LivingEntity
        if(Input.GetKeyDown(KeyCode.Q)){
         weaponController.Skill1(this);
        }
+       if(Input.GetKeyDown(KeyCode.E)){
+        weaponController.Skill2(this);
+       }
+       if(Input.GetKeyDown(KeyCode.R)){
+        weaponController.Skill3(this);
+       }
        //----------------Bagian Ekor Input-------------//
 
        print(stamina);
@@ -164,7 +169,7 @@ public class Player : LivingEntity
     IEnumerator ResetCooldown(){
         attack=false;
         currentState=State.attack;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.7f);
         attack=true;
         currentState = State.idle;
     }

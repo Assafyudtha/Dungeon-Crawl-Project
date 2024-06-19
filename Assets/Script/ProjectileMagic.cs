@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class ProjectileMagic : MonoBehaviour
 {
@@ -12,16 +13,22 @@ public class ProjectileMagic : MonoBehaviour
     [SerializeField]private float explosionDamage= 20;
     [SerializeField]private float speed = 3;
     [SerializeField]private GameObject _particles;
+    [SerializeField]int orientRotation=1;
     EnemyScriptMerge enemies;
+    Rigidbody rbBall;
+    Vector3 startingForward;
     void Start()
     {
+        rbBall=GetComponent<Rigidbody>();
         Invoke("Explode", 3f);
+        startingForward = transform.forward;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate (Vector3.forward*Time.deltaTime*speed);
+        rbBall.AddForce(startingForward*speed,ForceMode.Impulse);
+        transform.Rotate(Vector3.left*orientRotation);
     }
 
     void OnCollisionEnter(Collision coll){
@@ -39,6 +46,8 @@ public class ProjectileMagic : MonoBehaviour
             }
             Explode();
                   
+        }else if(coll.collider.tag =="Player"){
+            return;
         }else{
             Explode();
         }

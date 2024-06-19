@@ -44,7 +44,7 @@ public class EnemyScriptMerge : LivingEntity
     public bool playerInSightRange, playerInAttackRange;
     Vector3 firstStation;
     public bool nonSpawnEnemy;
-
+    Animator anims;
     //UI
     HealthBarEnemy healthBar;
     [SerializeField]float currentHealth;
@@ -72,11 +72,12 @@ public class EnemyScriptMerge : LivingEntity
     protected override void Start()
     {
         base.Start();
+        anims=GetComponent<Animator>();
         if(targetEntity!=null){
         targetEntity.OnDeath += OnTargetDeath;}
         healthBar.updateHealth(health,startingHealth);
         //if(!nonSpawnEnemy){
-            StartCoroutine(detectPlayer());
+        StartCoroutine(detectPlayer());
         //}
         //Gak jalan karna pas pertamakali jalan playeronrange nya sudha false jadi skip coroutine
 
@@ -100,6 +101,7 @@ public class EnemyScriptMerge : LivingEntity
             if(nonSpawnEnemy){
                     if(!playerInSightRange&& !playerInAttackRange){
                         while(!playerInSightRange){
+                            anims.SetBool("Chasing",false);
                             print(playerInSightRange);
                             yield return new WaitUntil(()=>playerInSightRange);
                         }
@@ -159,12 +161,12 @@ void Patrolling(){
     {
         Debug.Log("Health: "+health);
         base.TakeDamage(damage);
-        healthBar.updateHealth(this.health,startingHealth);
+        healthBar.updateHealth(health,startingHealth);
     }
 
     void ChasePlayer(){
         hpbox.SetActive(true);
-
+        anims.SetBool("Chasing",true);     
         if(target != null){
             dirToTarget = (target.position - transform.position).normalized;
         }
@@ -176,12 +178,13 @@ void Patrolling(){
     }
 
     void AttackPlayer(){
-        
+        anims.SetBool("Chasing",false);
         var direction = target.position - transform.position;
             direction.y=0;
         pathfinder.SetDestination(transform.position);
         transform.forward = direction;
         if(!alreadyAttacked){
+            anims.Play("Attack");
             targetEntity.TakeDamage(attackDamage);
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);

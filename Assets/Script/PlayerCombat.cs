@@ -26,7 +26,7 @@ public class PlayerCombat : MonoBehaviour
 
     }
 
-    public void Attack(){
+    public void Attack(Player playerTransform){
         
         if(Time.time -lastComboEnd>0.1f && comboCounter <=weaponController.equippedWeaponAttackAnimation.Count){
             CancelInvoke("EndCombo");
@@ -40,6 +40,8 @@ public class PlayerCombat : MonoBehaviour
                 weaponController.equippedWeapon.weaponDamage = weaponController.equippedWeaponAttackAnimation[comboCounter].damage;
                 comboCounter++;
                 lastClickedTime=Time.time;
+                Vector3 forwardForce= playerTransform.transform.forward * 3;
+                playerTransform.rb.AddForce(forwardForce*5,ForceMode.Impulse);
                 //AnimatorClipInfo animatorStateinfo = anims.GetCurrentAnimatorClipInfo[];
                 //string nameAnims = animatorStateinfo[0].clip.name;
                 float duration= anims.GetCurrentAnimatorStateInfo(0).length;
