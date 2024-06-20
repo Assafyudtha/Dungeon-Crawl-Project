@@ -27,10 +27,32 @@ public class MainMenu : MonoBehaviour
     }
 
     public void SetVolume(){
-        PlayerPrefs.SetFloat("sound volume", volume.value);
+        float vol=volume.value;
+        PlayerPrefs.SetFloat("sound volume", vol);
+        AudioListener.volume = vol;
     }
 
     public void setSlider(){
         volume.value= PlayerPrefs.GetFloat("sound volume");
+    }
+
+    public void playLevel1(){
+        SceneManager.LoadScene(1);
+    }
+
+    public void playLevel2(){
+        SceneManager.LoadScene(1);
+    }
+
+    public void playLevel3(){
+        SceneManager.LoadScene(1);
+    }
+
+    public void playLevel4(){
+        SceneManager.LoadScene(1);
+    }
+
+    public void playLevel5(){
+        SceneManager.LoadScene(1);
     }
 }

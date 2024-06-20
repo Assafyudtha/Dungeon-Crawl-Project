@@ -15,18 +15,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Prologue1.unity
     guid: 363ddd8c5725cf346ab43c47b6ab16af
   - enabled: 1
-    path: Assets/Scenes/RivanDesign/level desain 2.unity
+    path: Assets/Scenes/Prologue2.unity
+    guid: 95cfa713169a12c47a243ff95e753b56
+  - enabled: 1
+    path: Assets/Scenes/level desain 2.unity
     guid: d23e858e2bf095f418b584724e6acf7f
   - enabled: 1
-    path: Assets/Scenes/RivanDesign/level desain 3.unity
+    path: Assets/Scenes/level desain 3.unity
     guid: 7e1f189c1ab974840921ea378ab59200
   - enabled: 1
-    path: Assets/Scenes/RivanDesign/level desain 4.unity
+    path: Assets/Scenes/level desain 4.unity
     guid: e92bf3416cd071345a9c5bfc765e8b70
   - enabled: 1
-    path: Assets/Scenes/RivanDesign/level desain 5.unity
+    path: Assets/Scenes/level desain 5.unity
     guid: 71c799d267681a449bfd0207c19bee87
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/RivanDesign/EpilogueCutscene.unity
     guid: e195967d0c09cad40bc43b9c5cc0fa68
   - enabled: 1

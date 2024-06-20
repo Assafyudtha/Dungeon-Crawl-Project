@@ -247,6 +247,7 @@ public class Player : LivingEntity
         weaponController.EquipWeapon(0);
         currentState = State.idle;
         StartCoroutine(StaminaRegen());
+        SetVolume();
     }
     /*void Animation(){
         anims.SetFloat("MoveSpeed",Mathf.Abs(_input.ToIso().z));
@@ -264,4 +265,12 @@ public class Player : LivingEntity
         staminaBar.fillAmount=Mathf.Lerp(latestStaminaBar,stamina/100f,.7f);
     }
 
+    void SetVolume(){
+        if(PlayerPrefs.HasKey("sound volume")){
+            AudioListener.volume = PlayerPrefs.GetFloat("sound volume");
+        }else{
+            
+            AudioListener.volume = 0.8f;
+        }
+    }
 }

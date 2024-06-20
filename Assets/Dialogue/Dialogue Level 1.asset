@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6d7f12f6aff2a4d88f0e6779b773a6, type: 3}
+  m_Name: Dialogue Level 1
+  m_EditorClassIdentifier: 
+  DialogAtas:
+  - Arya
+  - Arya
+  - Pengikut Sekte 1
+  - Pengikut Sekte 2
+  - Pengikut Sekte 1
+  - Pengikut Sekte 2
+  - Pengikut Sekte 1
+  DialogBawah:
+  - Sepertinya, wanita tadi masuk kedalam sini. Sepertinya ini gua peninggalan kerajaan
+    kuno.
+  - Sepertinya ada orang yang berbincang.
+  - Bagaimana, apakah belati itu sudah diamankan?
+  - Sudah, memang belati itu bukanlah belati biasa. Bagaimana bisa Pimpinan tidak
+    merasakan apa-apa?
+  - Belati tersebut sudah ada sejak jaman kerajaan kuno disekitar sini. Bahkan sampai
+    sekarang dijaga turun temurun oleh keluarga penjaga dari kerajaan itu.
+  - 'Tidak heran memiliki kekuatan hebat. '
+  - HEY, SIAPA KAU? ADA PENYUSUP, TANGKAP DIA.

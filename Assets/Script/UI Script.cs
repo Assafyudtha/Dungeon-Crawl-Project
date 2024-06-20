@@ -16,6 +16,7 @@ public class UIScript : MonoBehaviour
     string nextLevel;
     [SerializeField]Player playerInput;
     [SerializeField]GameObject gameoverUI;
+    [SerializeField]Slider Audio;
 
     void Awake(){
         playerInput = FindObjectOfType<Player>();
@@ -61,5 +62,9 @@ public class UIScript : MonoBehaviour
     public void NextScene(){
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex+1);
+    }
+
+    void SetVolume(){
+        PlayerPrefs.SetFloat("sound volume",Audio.value);
     }
 }
