@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
@@ -11,6 +12,7 @@ public class NextLevel : MonoBehaviour
     GameObject winCondition;
     UIScript ui;
     public bool gateNextPassage=false;
+    [SerializeField]UnityEvent ontriggerEvent;
     void Start(){
         ui = FindObjectOfType<UIScript>();
         UIgame = ui.UIGameplay;
@@ -30,6 +32,7 @@ public class NextLevel : MonoBehaviour
             return;
         }else{
             if(coll.tag == "Player"){
+                ontriggerEvent.Invoke();
                 UIgame.SetActive(false);
                 winCondition.SetActive(true);
                 ui.PauseWin();

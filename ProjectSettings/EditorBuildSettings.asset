@@ -29,7 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/level desain 5.unity
     guid: 71c799d267681a449bfd0207c19bee87
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/EpilogueCutscene.unity
     guid: e195967d0c09cad40bc43b9c5cc0fa68
   - enabled: 1

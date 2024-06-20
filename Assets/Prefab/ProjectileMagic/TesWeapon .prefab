@@ -5122,7 +5122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fire: {fileID: 5279423699612913733}
-  SkillIcon: {fileID: 21300000, guid: 0e7c1d27c0b7ed34984a6a92625b7fa8, type: 3}
+  SkillIcon: {fileID: 21300000, guid: d333f6de2b661cd498f44fd16a44201b, type: 3}
   cooldown: 6
   castParticle: {fileID: 7548377715600248937, guid: 9fb083482bc8d6f49a4b4e6c79b95067, type: 3}
   staminaCost: 35
