@@ -13,25 +13,12 @@ MonoBehaviour:
   m_Name: LastDialog
   m_EditorClassIdentifier: 
   DialogAtas:
-  - 
-  - 
-  - 
   - Pemimpin Sekte
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Arya
+  - Pemimpin Sekte
   DialogBawah:
   - Jadi, kau yang menjatuhkan semua bawahanku. Apa yang kau inginkan dengan menggagalkan
     rencanaku?
-  - 'Rencana? '
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Rencana? Aku yakin rencana apapun dengan belati itu bukanlah rencana yang baik.
+    Sebaiknya kau kembalikan saja belati itu.
+  - Kalau kau ingin belati ini? Kau harus merebutnya.

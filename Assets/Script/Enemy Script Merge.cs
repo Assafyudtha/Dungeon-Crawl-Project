@@ -202,12 +202,13 @@ void Patrolling(){
 
     public GameObject powerUp( GameObject heal,GameObject stamina){
         float randomPowerup = Random.Range (0,1f);
+        Vector3 Above=new Vector3(0,1,0);
         if(randomPowerup<=0.7f){
             return null;
         }else if (randomPowerup>0.7f&&randomPowerup<=0.9f){
-           return Instantiate(heal, transform.position, Quaternion.identity);
+           return Instantiate(heal, transform.position+Above, Quaternion.identity);
         }else{
-           return Instantiate(stamina, transform.position, Quaternion.identity);
+           return Instantiate(stamina, transform.position+Above, Quaternion.identity);
         }
 
     }

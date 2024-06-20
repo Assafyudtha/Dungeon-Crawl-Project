@@ -700,8 +700,8 @@ MonoBehaviour:
   targetEntity: {fileID: 0}
   attackDamage: 1
   hpbox: {fileID: 6283236629640712276}
-  hpJamu: {fileID: 6001501150943847103, guid: 533973ddb0c1bd445a37fcd6d279585e, type: 3}
-  staminaJamu: {fileID: 3796138027931255584, guid: 5db1f13e769c0a84d8cdb15e1bdf9965, type: 3}
+  hpJamu: {fileID: 1445345811064488084, guid: 2da097ab0736fa9479c0359c3416ed3a, type: 3}
+  staminaJamu: {fileID: 6617429089475629797, guid: 1f3497b2a505749468f4e45e40d7bc6e, type: 3}
   target: {fileID: 0}
   rotateSpeed: 1
   speed: 1

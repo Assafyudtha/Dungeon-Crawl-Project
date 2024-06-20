@@ -6,8 +6,8 @@ MonoImporter:
   defaultReferences:
   - targetEntity: {instanceID: 0}
   - hpbox: {instanceID: 0}
-  - hpJamu: {instanceID: 0}
-  - staminaJamu: {instanceID: 0}
+  - hpJamu: {fileID: 1445345811064488084, guid: 2da097ab0736fa9479c0359c3416ed3a, type: 3}
+  - staminaJamu: {fileID: 6617429089475629797, guid: 1f3497b2a505749468f4e45e40d7bc6e, type: 3}
   - target: {instanceID: 0}
   - spawns: {instanceID: 0}
   executionOrder: 0
